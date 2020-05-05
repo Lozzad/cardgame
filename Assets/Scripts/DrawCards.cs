@@ -1,27 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 
-public class DrawCards : MonoBehaviour {
-    public GameObject Card1;
-    public GameObject Card2;
-    public GameObject PlayerArea;
-    public GameObject EnemyArea;
+public class DrawCards : NetworkBehaviour {
+    public PlayerManager playerManager;
 
-    List<GameObject> cards = new List<GameObject> ();
-
-    void Start () {
-        cards.Add (Card1);
-        cards.Add (Card2);
-    }
+    void Start () { }
 
     public void OnClick () {
-        for (int i = 0; i < 5; i++) {
-            GameObject playerCard = Instantiate (cards[Random.Range (0, cards.Count)], Vector3.zero, Quaternion.identity);
-            playerCard.transform.SetParent (PlayerArea.transform, false);
-
-            GameObject enemyCard = Instantiate (cards[Random.Range (0, cards.Count)], Vector3.zero, Quaternion.identity);
-            enemyCard.transform.SetParent (EnemyArea.transform, false);
-        }
+        NetworkIdentity networkIdentity = NetworkClient.connection.identity;
+        playerManager = networkIdentity.GetComponent<PlayerManager> ();
+        playerManager.CmdDealCards ();
     }
 }
