@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8811759466328055500}
   - component: {fileID: -7981999649507464150}
   - component: {fileID: 2420362439492265163}
+  - component: {fileID: 5177553980865268794}
   m_Layer: 8
   m_Name: Card2
   m_TagString: Untagged
@@ -92,7 +93,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d96fb8f78e751474fb2885aed8223a93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
+  syncMode: 0
+  syncInterval: 0.1
+  Canvas: {fileID: 0}
+  DropZone: {fileID: 0}
+  PlayerManager: {fileID: 0}
 --- !u!114 &-4501220713454956211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,6 +257,7 @@ MonoBehaviour:
   sceneId: 0
   serverOnly: 0
   m_AssetId: 
+  hasSpawned: 0
 --- !u!114 &2420362439492265163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,3 +276,17 @@ MonoBehaviour:
   localPositionSensitivity: 0.01
   localRotationSensitivity: 0.01
   localScaleSensitivity: 0.01
+--- !u!114 &5177553980865268794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4398680879192646660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75aa103e18d072146a9528a053077d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardFront: {fileID: 21300000, guid: 6584ebf42484a3548b41f32beeed43f9, type: 3}
+  CardBack: {fileID: 21300000, guid: 9038990cd9310894e92ace5eb9bd0744, type: 3}
